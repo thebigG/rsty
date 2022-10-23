@@ -27,8 +27,22 @@ pub struct Config {
     pub query: String,
     pub ignore_case: bool,
 }
-
+///
 impl Config {
+    ///creates a Config object from args
+    /// Example
+    /// ```
+    /// use minigrep::Config;
+    /// use std::{env, process};
+    /// let mut args: Vec<String> = Vec::new();
+    /// args.push(String::from("program_name")) ;
+    /// args.push(String::from("some_file_path"));
+    /// args.push(String::from("some_file_path"));
+    /// let config = Config::build(args.into_iter()).unwrap_or_else(|err| {
+    /// eprintln!("Problem parsing arguments: {err}");
+    /// process::exit(1);
+    /// });
+    /// ```
     pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
 
@@ -73,7 +87,7 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
     //faster than using loops
     contents
         .lines()
-        .filter(|line| line.to_lowercase().contains(&query))
+        .filter(|line| line.to_lowercase().contains(&query.to_lowercase()))
         .collect()
 
     //same as
