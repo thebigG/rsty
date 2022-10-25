@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "drop_deref",
+    "cons_list"
+]
