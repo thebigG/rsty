@@ -2,5 +2,6 @@
 
 members = [
     "drop_deref",
-    "cons_list"
+    "cons_list",
+    "messenger"
 ]
