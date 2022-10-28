@@ -3,5 +3,9 @@
 version = 3
 
 [[package]]
+name = "channels"
+version = "0.1.0"
+
+[[package]]
 name = "spawn"
 version = "0.1.0"
