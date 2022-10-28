@@ -3,5 +3,7 @@
 members = [
     "drop_deref",
     "cons_list",
-    "messenger"
+    "messenger",
+    "reference_cycle",
+    "tree"
 ]

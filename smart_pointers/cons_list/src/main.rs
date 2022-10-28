@@ -1,11 +1,11 @@
 //Some lisp-y code in Rust
 
-use std::rc::Rc; //Reference-counted immutable smart pointer
 use crate::List::{Cons, Nil};
+use std::rc::Rc; //Reference-counted immutable smart pointer
 
-enum List{
+enum List {
     Cons(i32, Rc<List>),
-    Nil
+    Nil,
 }
 
 fn main() {
