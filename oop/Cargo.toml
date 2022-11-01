@@ -1,4 +1,6 @@
 [workspace]
 
-members = [ "averaged_collection"
+members = [ 
+	"averaged_collection",
+	"gui"
 ]
