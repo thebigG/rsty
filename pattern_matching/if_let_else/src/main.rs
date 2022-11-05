@@ -98,3 +98,30 @@ fn ranged_pattern() {
         _ => println!("No match"),
     }
 }
+
+fn destruct_enums() {
+    enum Message {
+        Quit,
+        Move { x: i32, y: i32 },
+        Write(String),
+        ChangeColor(i32, i32, i32),
+    }
+
+    let msg = Message::ChangeColor(0, 160, 255);
+
+    match msg {
+        Message::Quit => {
+            println!("The Quit variant has no data destructure.");
+        }
+        Message::Move { x, y } => {
+            println!("Move in the direction {} and the in the y direction {}"
+                    x, y);
+        }
+        Message::Write(text) => {
+            println!("Text message: {}", text);
+        }
+        Message::ChangeColor(r, g, b) => {
+            println!("Change color to red {}, green {}, and blue {}", r, g, b);
+        }
+    }
+}
