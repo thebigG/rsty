@@ -2,5 +2,6 @@
 
 members = [
     "raw_pointers",
-    "unsafe_functions"
+    "unsafe_functions",
+    "c_interoop"
 ]
