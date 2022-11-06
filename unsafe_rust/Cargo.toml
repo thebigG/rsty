@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "raw_pointers",
+    "unsafe_functions"
+]
