@@ -5,3 +5,7 @@ version = 3
 [[package]]
 name = "raw_pointers"
 version = "0.1.0"
+
+[[package]]
+name = "unsafe_functions"
+version = "0.1.0"
