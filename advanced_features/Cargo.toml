@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "ops_overload",
+    "super_traits"
+]
