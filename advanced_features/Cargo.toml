@@ -2,5 +2,6 @@
 
 members = [
     "ops_overload",
-    "super_traits"
+    "super_traits",
+    "type_alias"
 ]
