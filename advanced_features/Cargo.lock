@@ -3,9 +3,17 @@
 version = 3
 
 [[package]]
+name = "functors"
+version = "0.1.0"
+
+[[package]]
 name = "ops_overload"
 version = "0.1.0"
 
 [[package]]
 name = "super_traits"
+version = "0.1.0"
+
+[[package]]
+name = "type_alias"
 version = "0.1.0"
