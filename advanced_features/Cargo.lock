@@ -7,6 +7,10 @@ name = "functors"
 version = "0.1.0"
 
 [[package]]
+name = "macros"
+version = "0.1.0"
+
+[[package]]
 name = "ops_overload"
 version = "0.1.0"
 
