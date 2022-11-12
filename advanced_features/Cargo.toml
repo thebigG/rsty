@@ -5,5 +5,5 @@ members = [
     "super_traits",
     "type_alias",
     "functors",
-    "macros"
+    "macros",
 ]
