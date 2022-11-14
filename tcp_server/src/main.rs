@@ -2,21 +2,24 @@ use std::{
     fs,
     io::{prelude::*, BufReader},
     net::{TcpListener, TcpStream},
+    thread,
+    time::Duration,
 };
 
 fn main() {
     let address = "127.0.0.1:7878";
     let listener = TcpListener::bind(address).unwrap();
+    let pool = ThreadPool::new(4);
 
     println!("Waiting on http://{}", address);
     println!("Waiting for connections...");
 
     for stream in listener.incoming() {
         let current_stream = stream.unwrap();
-
         println!("Connection established");
-
-        handle_connection(current_stream);
+        pool.execute(|| {
+            handle_connection(current_stream);
+        });
     }
 
     fn handle_connection(mut stream: TcpStream) {
@@ -29,10 +32,13 @@ fn main() {
 
         let request_line = buf_reader.lines().next().unwrap().unwrap();
 
-        let (status_line, file_name) = if request_line == "GET / HTTP/1.1" {
-            ("HTTP/1.1 200 OK", "index.html")
-        } else {
-            ("HTTP/1.1 404 NOT FOUND", "404.html")
+        let (status_line, file_name) = match &request_line[..] {
+            "GET / HTTP/1.1" => ("HTTP/1.1 200 OK", "index.html"),
+            "GET /sleep HTTP/1.1" => {
+                thread::sleep(Duration::from_secs(5));
+                ("HTTP/1.1 200 OK", "index.html")
+            }
+            &_ => ("HTTP/1.1 404 NOT FOUND", "404.html"),
         };
         send_response(&mut stream, status_line, file_name);
     }
