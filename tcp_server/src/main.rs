@@ -7,8 +7,6 @@ use std::{
 };
 use tcp_server::ThreadPool;
 
-
-
 fn main() {
     let address = "127.0.0.1:7878";
     let listener = TcpListener::bind(address).unwrap();
