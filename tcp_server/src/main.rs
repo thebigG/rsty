@@ -22,6 +22,7 @@ fn main() {
             handle_connection(current_stream);
         });
     }
+}
 
     fn handle_connection(mut stream: TcpStream) {
         let buf_reader = BufReader::new(&mut stream);
@@ -52,4 +53,3 @@ fn main() {
 
         stream.write_all(response.as_bytes()).unwrap();
     }
-}
